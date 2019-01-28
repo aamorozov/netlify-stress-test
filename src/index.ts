@@ -3,16 +3,17 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 dotenv.config({path: '../.env'});
+
 const {LAUNCH_URL} = process.env;
 
 const about: string = 'a[href="/about/"]';
 const contact: string = 'a[href="/contact/"]';
 const projects: string = 'a[href="/projects/"]';
+
 const defaultTimeout: {} = {timeout: 10000};
 const waitUntilEvent: {} = {waitUntil: 'domcontentloaded'};
-const screenshotsPath: {} = {path: './screenshots'};
 
-const generateScreenshotPath = (index: number) => {
+const generateScreenshotPath = (index: number): {path: string} => {
   return {path: `screenshots/${index}.png`};
 };
 

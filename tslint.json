@@ -1,9 +1,8 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint-config-airbnb"],
   "rules": {
-    "ter-indent": [true, 4],
-    "max-line-length": [true, 121],
+    "ter-indent": [true, 2],
+    "max-line-length": [true, 80],
     "prefer-array-literal": false
   }
 }
