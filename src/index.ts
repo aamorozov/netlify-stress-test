@@ -9,6 +9,7 @@ const {LAUNCH_URL} = process.env;
 const about: string = 'a[href="/about/"]';
 const contact: string = 'a[href="/contact/"]';
 const projects: string = 'a[href="/projects/"]';
+const numberOfIterations: number = 10000;
 
 const defaultTimeout: {} = {timeout: 10000};
 const waitUntilEvent: {} = {waitUntil: 'domcontentloaded'};
@@ -41,11 +42,9 @@ async function iteration(index: number): Promise<void> {
   }
 }
 
-const total: number = 10000;
-
 const promises: Array<(index: number) => Promise<any>> = [];
 
-[...Array(total)].map((_, i) => (promises[i] = iteration));
+[...Array(numberOfIterations)].map((_, i) => (promises[i] = iteration));
 
 (async () => {
   promises.reduce(async (chain, cmd, i) => {
