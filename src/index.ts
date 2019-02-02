@@ -41,14 +41,11 @@ async function iteration(index: number): Promise<void> {
   }
 }
 
-const start: number = 0;
 const total: number = 10000;
 
 const promises: Array<(index: number) => Promise<any>> = [];
 
-for (let i = start; i <= total; i++) {
-  promises.push(iteration);
-}
+[...Array(total)].map((_, i) => (promises[i] = iteration));
 
 (async () => {
   promises.reduce(async (chain, cmd, i) => {
